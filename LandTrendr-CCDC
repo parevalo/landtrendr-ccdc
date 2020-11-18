@@ -100,7 +100,6 @@ var plotTimeSeries = function(x, y){
   var pixel = point.buffer(15).bounds();
   
   map.layers().set(0, ui.Map.Layer(pixel, {color: 'FF0000'}));
-  map.addLayer(filtered)
   
   // get values to define year and date window for image collection
   var startYear = startYearslider.getValue();
@@ -489,9 +488,6 @@ map.add(ui.Label({
 }));
 
 ui.root.clear();
-// ui.root.add(controlPanel);
-// ui.root.add(map);
-// ui.root.add(plotPanelParent);
 var leftPanel = ui.Panel({style: {width: '60%'},
   widgets: [controlPanel, map],
   layout: ui.Panel.Layout.Flow('horizontal')
@@ -500,8 +496,6 @@ var leftPanel = ui.Panel({style: {width: '60%'},
 var fullPanel = ui.SplitPanel(leftPanel, plotPanelParent, 'horizontal')
 ui.root.add(fullPanel)
 
-
+// Retrieve CCDC panel and add to plot panel
 var ccdChartPanel = uiUtils.getTSChart(map, ccdParams, ccdRunParams, vizParams)
 plotPanelParent.add(ccdChartPanel)
-
-map.addLayer(filtered)
