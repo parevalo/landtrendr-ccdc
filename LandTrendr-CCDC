@@ -448,20 +448,6 @@ map.onClick(function(coords) {
 });
 
 
-// plot time series for point defined as coordinates
-// THIS WONT WORK ON CDC WITH CURRENT CODE
-// submitButton.onClick(function(){
-//   var x = parseFloat(lonBox.getValue());
-//   var y = parseFloat(latBox.getValue());
-//   runParams = getParams();
-//   plotTimeSeries(x, y);
-//   map.setCenter(x, y, 16);
-// });
-
-
-
-
-
 
 //####################################################################################
 //########### ADD PANELS TO INTERFACE ################################################
