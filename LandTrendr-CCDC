@@ -4,41 +4,19 @@
 //#                                                                                                    #\\
 //########################################################################################################b
 
-var lcms_plots = ee.FeatureCollection('users/valeriepasquarella/lcms_plots')
 
-var filtered1 = lcms_plots
-                    .filterMetadata('tsa', 'equals', 1228)
-                    .filterMetadata('set', 'equals', 5)
-                    .filterMetadata('plotid', 'equals', 92)
-
-var filtered2 = lcms_plots
-                    .filterMetadata('tsa', 'equals', 1637)
-                    .filterMetadata('set', 'equals', 5)
-                    .filterMetadata('plotid', 'equals', 13)
-                    
-var filtered3 = lcms_plots
-                    .filterMetadata('tsa', 'equals', 1637)
-                    .filterMetadata('set', 'equals', 5)
-                    .filterMetadata('plotid', 'equals', 27)
-
-var filtered4 = lcms_plots
-                    .filterMetadata('tsa', 'equals', 2727)
-                    .filterMetadata('set', 'equals', 5)
-                    .filterMetadata('plotid', 'equals', 52)
-                    
-var filtered = filtered1.merge(filtered2).merge(filtered3).merge(filtered4)
-
-
-// LANDTRENDR
+// LANDTRENDR UTILITIES
 // date: 2018-06-11
 // author: Justin Braaten | jstnbraaten@gmail.com
 //         Zhiqiang Yang  | zhiqiang.yang@oregonstate.edu
 //         Robert Kennedy | rkennedy@coas.oregonstate.edu
 // website: https://github.com/eMapR/LT-GEE
 
-// CCDC
+// CCDC UTILITIES
 // date: 2020-03-12
 // author: Paulo Arévalo | parevalo@bu.edu
+// author: Eric Bullock | bullocke@bu.edu
+// website: 
 
 // Imports
 var ltgee = require('users/parevalo_bu/default:LandTrendr.js');  
