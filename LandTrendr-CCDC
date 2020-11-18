@@ -20,7 +20,7 @@
 // website: https://gee-ccdc-tools.readthedocs.io/en/latest/
 
 // Imports
-var ltgee = require('users/parevalo_bu/default:LandTrendr.js');  
+var ltgee = require('users/parevalo_bu/landtrendr-ccdc:LandTrendr.js');  
 var uiUtils = require('projects/GLANCE:ccdcUtilities/ui');
 var horizontalStyle = {stretch: 'horizontal', width: '100%'}
  
