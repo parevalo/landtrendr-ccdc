@@ -19,7 +19,9 @@
 // contributors: Noel Gorelick, Zhiqiang Yang
 // website: https://gee-ccdc-tools.readthedocs.io/en/latest/
 
-// Imports
+// Module imports. 
+// Uses modified version of LandTrendr.js that replaces
+// bands names with their actual spectral names (e.g. "SWIR1" instead of "B5")
 var ltgee = require('users/parevalo_bu/landtrendr-ccdc:LandTrendr.js');  
 var uiUtils = require('users/parevalo_bu/gee-ccdc-tools:ccdcUtilities/ui');
 var horizontalStyle = {stretch: 'horizontal', width: '100%'}
