@@ -16,7 +16,8 @@
 // date: 2020-03-12
 // author: Paulo Arévalo | parevalo@bu.edu
 // author: Eric Bullock | bullocke@bu.edu
-// website: 
+// contributors: Noel Gorelick, Zhiqiang Yang
+// website: https://gee-ccdc-tools.readthedocs.io/en/latest/
 
 // Imports
 var ltgee = require('users/parevalo_bu/default:LandTrendr.js');  
