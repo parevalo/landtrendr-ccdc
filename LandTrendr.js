@@ -11,8 +11,11 @@
 //         Robert Kennedy | rkennedy@coas.oregonstate.edu
 // website: https://github.com/eMapR/LT-GEE
  
-// Moodified by Paulo Arevalo
 // date: 2020-03-19
+// modified by: Paulo Arevalo
+// Functionality is identical to that in the original LT-GEE
+// repository, but spectral band names have been changed to 
+// reflect their actual names and simplify comparison with CCDC
 
 exports.doc = 'These are functions to run LandTrendr'; 
 
