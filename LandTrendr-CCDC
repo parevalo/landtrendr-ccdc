@@ -409,17 +409,8 @@ map.onClick(function(coords) {
   var startDay = startDayBox.getValue();
   var endDay = endDayBox.getValue();
   
-  // Try to recycle landtrendr collection and feed it to CCD, not working yet
-  // var collection = ee.ImageCollection(ltgee.buildFullSRcollection(startYear, endYear, startDay, endDay, geometry))
-  //                     .map(function(img){
-  //                       var test = img.divide(10000)
-  //                       return ee.Image(img).addBands(test)})
-  // print(collection)
-  // uiUtils.testchartCcdc(collection, geometry, 'SWIR1', plotPanel, 
-  //                   '2000-01-01', '2020-01-01', x, y, map)
 
-  // Get ccdc params here
-
+  // Retrieve CCDC params
   ccdParams.breakpointBands = BPBANDS
   ccdParams.tmaskBands= TMBANDS
   ccdParams.dateFormat = dateFormat
