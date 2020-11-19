@@ -1,16 +1,15 @@
 # LandTrendr - CCDC
 
 **Tool to compare the outputs of the LandTrendr and CCDC algorithms for a single Landsat pixel**
-<br><br>
 
-    This repository contains a (slightly) modified copy of the LandTrendr utility that displays the algorithm results for a single pixel. In this tool we have also added the results of the CCDC algorithm to facilitate the comparison of the results.
+This repository contains a (slightly) modified copy of the LandTrendr utility that displays the algorithm results for a single pixel. In this tool we have also added the results of the CCDC algorithm to facilitate the comparison of the results.
 
 The description of the original LandTrendr utilities can be found [here](https://emapr.github.io/LT-GEE/)
 
 The script hosted here also requires the CCDC visualization utilities, described [here](https://github.com/parevalo/gee-ccdc-tools)
 
 
-## [Manuscript] 
+## Manuscript 
 
 ## Citations
 
