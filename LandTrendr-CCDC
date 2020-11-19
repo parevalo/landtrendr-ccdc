@@ -20,7 +20,7 @@
 // website: https://gee-ccdc-tools.readthedocs.io/en/latest/
 
 // Module imports. 
-// Uses modified version of LandTrendr.js that replaces
+// Uses modified version of the official LandTrendr.js that replaces
 // bands names with their actual spectral names (e.g. "SWIR1" instead of "B5")
 var ltgee = require('users/parevalo_bu/landtrendr-ccdc:LandTrendr.js');  
 var uiUtils = require('users/parevalo_bu/gee-ccdc-tools:ccdcUtilities/ui');
