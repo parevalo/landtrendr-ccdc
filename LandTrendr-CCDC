@@ -450,9 +450,7 @@ controlPanel.add(yearsPanel);
 controlPanel.add(datesPanel);
 controlPanel.add(indexPanelLabel);
 controlPanel.add(indexPanel);
-// controlPanel.add(latLonPanel);
 controlPanel.add(paramPanel);
-// controlPanel.add(submitButton);
 controlPanel.add(app.ccd.controlPanel)
 controlPanel.add(app.viz.controlPanel)
 
@@ -462,9 +460,10 @@ map.add(ui.Label({
 }));
 
 map.add(ui.Label({
-  value: 'Info: https://goo.gl/pQtpjR',
+  value: 'More info: https://github.com/parevalo/landtrendr-ccdc',
   style: {position: 'bottom-right'}
 }));
+
 
 ui.root.clear();
 var leftPanel = ui.Panel({style: {width: '60%'},
