@@ -2,20 +2,20 @@
 
 **Tool to compare the outputs of the LandTrendr and CCDC algorithms for a single Landsat pixel**
 
-The scripts in this repository enable users to interactively run the LandTrendr and CCDC temporal segmentation algorithms for clicked pixels. This repository includes a modified copy of the LandTrendr utility that displays the algorithm results for a single pixel. We have also added functionality from the CCDC algorithm.
+The scripts in this repository facilitate interactively running the LandTrendr (Landsat-based detection of Trends in Disturbance and Recovery) and CCDC (Continuous Change Detection and Classification) algorithms concurrently for clicked pixels, and resulting charts enable comparison of both time series inputs and temporal segmentation results. This repository includes a modified copy of LandTrendr utilities and relies on functionality from the CCDC algorithm API.
 
 **Getting started:**
 
-The code in this repository can be accessed and run in GEE directly [here](https://code.earthengine.google.com/?accept_repo=users/parevalo_bu/landtrendr-ccdc)
+The code in this repository can be added to your Earth Engine scripts by clicking [here](https://code.earthengine.google.com/?accept_repo=users/parevalo_bu/landtrendr-ccdc), and will be displayed in the Reader section.
 
-The main visualization tool is available by running `LandTrendr-CCDC.js`. Key parameters for the LandTrendr and CCDC algorithms can be adjusted in the left-hand panel, and clicking the map will interactively display both LandTrendr and CCDC Landsat inputs and segmentation results for the selected pixel in a set of charts in the right-hand panel. Note: CCDC is a more computationally intensive algorithm and results may be slow to load.
+The main visualization tool is accessible by running `LandTrendr-CCDC.js`. Key parameters for the LandTrendr and CCDC algorithms can be adjusted in the left-hand panel, and clicking the map will interactively display both LandTrendr and CCDC Landsat inputs and segmentation results for the selected pixel in a set of charts in the right-hand panel. _Note: CCDC is a more computationally intensive algorithm and results may be slow to load and display._
 
 Additional LandTrendr utilities are included in `LandTrendr.js` and a description of the original LandTrendr utilities can be found [here](https://emapr.github.io/LT-GEE/).
 
-Users must also enable access to CCDC visualization utilities by connecting to the GEE-CCDC Tools repository [here](https://code.earthengine.google.com/?accept_repo=users/parevalo_bu/gee-ccdc-tools) and described [here](https://github.com/parevalo/gee-ccdc-tools).
-
+Users must also enable access to CCDC visualization utilities by clicking [here](https://code.earthengine.google.com/?accept_repo=users/parevalo_bu/gee-ccdc-tools) to connect to the GEE-CCDC Tools repository, also described [here](https://github.com/parevalo/gee-ccdc-tools).
 
 ## Manuscript
+This tool was designed to accompany an in-prep manuscript intended to provide high-level comparison current limitations, ongoing challenges, and opportunities for future integration and comparison of LandTrendr and CCDC approaches and map products.
 
 ## Citations
 
