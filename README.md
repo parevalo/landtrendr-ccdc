@@ -23,4 +23,5 @@ LandTrendr implementation in GEE: Kennedy, R.E., Yang, Z., Gorelick, N., Braaten
 
 CCDC implementation in GEE: _Coming soon!_
 
-Third-party CCDC utilities used in this tool: Arévalo, P., Bullock, E., Woodcock, C.E., Olofsson, P. (2020). A suite of tools for Continuous Land Change Monitoring in the Google Earth Engine. _Frontiers in Climate_ (in press)
+Third-party CCDC utilities used in this tool: Arévalo, P., Bullock, E.L., Woodcock, C.E., Olofsson, P., 2020. A Suite of Tools for Continuous Land Change Monitoring in Google Earth Engine. Front. Clim. 2. https://doi.org/10.3389/fclim.2020.576740
+
