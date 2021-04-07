@@ -434,6 +434,7 @@ map.onClick(function(coords) {
   vizParams.redMax = parseFloat(app.viz.redBox.widgets().get(2).getValue())
   vizParams.greenMax = parseFloat(app.viz.greenBox.widgets().get(2).getValue())
   vizParams.blueMax = parseFloat(app.viz.blueBox.widgets().get(2).getValue())
+  vizParams.tsType == "Time series"
   
   
   runParams = getParams();
