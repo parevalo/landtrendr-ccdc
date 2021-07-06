@@ -376,9 +376,9 @@ app.ccd.controlPanel = ui.Panel({style: {width: '100%'},
                           app.ccd.maxIter, app.ccd.minObs, app.ccd.chiSq, app.ccd.minYears]});
                       
   
-app.viz.controlPanel = ui.Panel({style: {width: '100%'},
-                          widgets: [ui.Label('CCDC visualization params', visLabels), app.viz.nSegs,
-                          app.viz.redBox, app.viz.greenBox, app.viz.blueBox]});
+// app.viz.controlPanel = ui.Panel({style: {width: '100%'},
+//                           widgets: [ui.Label('CCDC visualization params', visLabels), app.viz.nSegs,
+//                           app.viz.redBox, app.viz.greenBox, app.viz.blueBox]});
 
 
 //####################################################################################
@@ -449,7 +449,7 @@ controlPanel.add(indexPanelLabel);
 controlPanel.add(indexPanel);
 controlPanel.add(paramPanel);
 controlPanel.add(app.ccd.controlPanel);
-controlPanel.add(app.viz.controlPanel);
+// controlPanel.add(app.viz.controlPanel);
 
 map.add(ui.Label({
   value: 'Click a point',
