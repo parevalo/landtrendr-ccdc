@@ -145,8 +145,17 @@ var controlPanel = ui.Panel({
 
 // plot panel
 var plotsPanelLabel = ui.Label('Time series plots', visLabels);
+var plotsPanelInstruc = ui.Label({
+  value: 'Click a point to view LandTrendr and CCDC temporal segementation results',
+  style: {
+    fontSize: '12px',
+    padding: '4px',
+    color: 'grey',
+    stretch: 'horizontal'
+  } 
+});
 var plotPanel = ui.Panel(null, null, {stretch: 'horizontal'});
-var plotPanelParent = ui.Panel([plotsPanelLabel, plotPanel], null, {width: '480px'});
+var plotPanelParent = ui.Panel([plotsPanelLabel, plotsPanelInstruc, plotPanel], null, {width: '480px'});
 
 
 // map panel
@@ -450,19 +459,6 @@ controlPanel.add(indexPanel);
 controlPanel.add(paramPanel);
 controlPanel.add(app.ccd.controlPanel);
 // controlPanel.add(app.viz.controlPanel);
-
-map.add(ui.Label({
-  value: 'Click a point',
-  style: {
-    position: 'top-center',
-    fontWeight: 'bold', 
-    fontSize: '14px', 
-    padding: '6px',
-    color: 'white',
-    backgroundColor: 'black',
-    stretch: 'horizontal'
-  } 
-}));
 
 map.add(ui.Label({
   value: 'https://github.com/parevalo/landtrendr-ccdc',
