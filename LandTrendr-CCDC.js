@@ -453,12 +453,28 @@ controlPanel.add(app.viz.controlPanel);
 
 map.add(ui.Label({
   value: 'Click a point',
-  style: {position: 'top-center'} 
+  style: {
+    position: 'top-center',
+    fontWeight: 'bold', 
+    fontSize: '14px', 
+    padding: '6px',
+    border: '1px solid black',
+    color: 'white',
+    backgroundColor: 'black',
+    textAlign: 'left',
+    stretch: 'horizontal'
+  } 
 }));
 
 map.add(ui.Label({
   value: 'https://github.com/parevalo/landtrendr-ccdc',
-  style: {position: 'bottom-right'}
+  style: {
+    position: 'bottom-right',
+    fontSize: '12px', 
+    padding: '6px',
+    backgroundColor: 'white',
+    stretch: 'horizontal'
+  }
 }).setUrl('https://github.com/parevalo/landtrendr-ccdc'));
 
 
