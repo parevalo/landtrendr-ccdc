@@ -139,7 +139,7 @@ var plotTimeSeries = function(x, y){
 var controlPanel = ui.Panel({
   layout: ui.Panel.Layout.flow('vertical'),
   style: {width: '340px'},
-  widgets: [ui.Label('Landtrendr controls', visLabels)]
+  widgets: [ui.Label('LandTrendr controls', visLabels)]
 });
 
 
