@@ -180,7 +180,7 @@ var yearsPanel = ui.Panel(
 
 
 // date panel
-var dateSectionLabel = ui.Label('Define Date Range (month-day)',{fontWeight: 'bold'});
+var dateSectionLabel = ui.Label('Define Date Range (mm-dd)',{fontWeight: 'bold'});
 var startDayLabel = ui.Label('Start Date:');
 var startDayBox = ui.Textbox({value:'06-10'});
 startDayBox.style().set('stretch', 'horizontal');
