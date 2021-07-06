@@ -458,7 +458,6 @@ map.add(ui.Label({
     fontWeight: 'bold', 
     fontSize: '14px', 
     padding: '6px',
-    border: '1px solid black',
     color: 'white',
     backgroundColor: 'black',
     textAlign: 'left',
