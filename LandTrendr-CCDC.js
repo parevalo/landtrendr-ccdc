@@ -139,12 +139,12 @@ var plotTimeSeries = function(x, y){
 var controlPanel = ui.Panel({
   layout: ui.Panel.Layout.flow('vertical'),
   style: {width: '340px'},
-  widgets: [ui.Label('LandTrendr controls', visLabels)]
+  widgets: [ui.Label('🎛️ LandTrendr controls', visLabels)]
 });
 
 
 // plot panel
-var plotsPanelLabel = ui.Label('Time series plots', visLabels);
+var plotsPanelLabel = ui.Label('📈Time series plots', visLabels);
 var plotsPanelInstruc = ui.Label({
   value: 'Click a point to view LandTrendr and CCDC temporal segementation results',
   style: {
@@ -380,7 +380,7 @@ app.ccd.bandSelector = ui.Panel(
 
 // Make CCDC control Panel
 app.ccd.controlPanel = ui.Panel({style: {width: '100%'},
-                          widgets: [ui.Label('CCDC controls', visLabels),
+                          widgets: [ui.Label('🎛️ CCDC controls', visLabels),
                           app.ccd.bandSelector, app.ccd.sDate, app.ccd.eDate, app.ccd.lambda,
                           app.ccd.maxIter, app.ccd.minObs, app.ccd.chiSq, app.ccd.minYears]});
                       
