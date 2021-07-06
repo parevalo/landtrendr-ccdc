@@ -146,7 +146,7 @@ var controlPanel = ui.Panel({
 // plot panel
 var plotsPanelLabel = ui.Label('📈 Time series charts', visLabels);
 var plotsPanelInstruc = ui.Label({
-  value: 'Click the map to generate LandTrendr and CCDC temporal segementation results.',
+  value: 'Click the map to generate LandTrendr and CCDC temporal segmentation results.',
   style: {
     fontSize: '12px',
     padding: '4px',
