@@ -153,7 +153,7 @@ var plotPanelParent = ui.Panel([plotsPanelLabel, plotPanel], null, {width: '480p
 var map = ui.Map();
 map.style().set({cursor:'crosshair'});
 map.setOptions('HYBRID');
-var processingLabel = ui.Label('CCDC processing, please wait...', {shown:false, position: 'top-center'});
+var processingLabel = ui.Label('Processing, please wait...', {shown:false, position: 'top-center'});
 map.add(processingLabel);
 
 
