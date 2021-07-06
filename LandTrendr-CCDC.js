@@ -154,8 +154,8 @@ var plotsPanelInstruc = ui.Label({
     stretch: 'horizontal'
   } 
 });
-var plotPanel = ui.Panel(null, null, {stretch: 'horizontal'});
-var plotPanelParent = ui.Panel([plotsPanelLabel, plotsPanelInstruc, plotPanel], null, {width: '480px'});
+var plotPanel = ui.Panel(null, null, {stretch: 'horizontal'}).add(plotsPanelInstruc);
+var plotPanelParent = ui.Panel([plotsPanelLabel, plotPanel], null, {width: '480px'});
 
 
 // map panel
