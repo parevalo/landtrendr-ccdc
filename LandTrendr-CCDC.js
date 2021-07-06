@@ -457,9 +457,9 @@ map.add(ui.Label({
 }));
 
 map.add(ui.Label({
-  value: 'More info: https://github.com/parevalo/landtrendr-ccdc',
+  value: 'https://github.com/parevalo/landtrendr-ccdc',
   style: {position: 'bottom-right'}
-}));
+}).setUrl('https://github.com/parevalo/landtrendr-ccdc'));
 
 
 ui.root.clear();
