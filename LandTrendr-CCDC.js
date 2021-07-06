@@ -144,7 +144,7 @@ var controlPanel = ui.Panel({
 
 
 // plot panel
-var plotsPanelLabel = ui.Label('Time Series Plots', {fontWeight: 'bold', stretch: 'horizontal'});
+var plotsPanelLabel = ui.Label('Time series plots', visLabels);
 var plotPanel = ui.Panel(null, null, {stretch: 'horizontal'});
 var plotPanelParent = ui.Panel([plotsPanelLabel, plotPanel], null, {width: '480px'});
 
