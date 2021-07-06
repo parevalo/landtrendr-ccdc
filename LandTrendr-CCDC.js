@@ -24,28 +24,27 @@
 // bands names with their actual spectral names (e.g. "SWIR1" instead of "B5")
 var ltgee = require('users/parevalo_bu/landtrendr-ccdc:LandTrendr.js');  
 var uiUtils = require('users/parevalo_bu/gee-ccdc-tools:ccdcUtilities/ui');
-var horizontalStyle = {stretch: 'horizontal', width: '100%'}
+var horizontalStyle = {stretch: 'horizontal', width: '100%'};
  
 /// GLOBAL VARS
 // Visualization parameters
 var visLabels = {
-  fontWeight: 'bold', 
-  fontSize: '14px', 
-  padding: '4px 4px 4px 4px',
-  border: '1px solid black',
-  color: 'white',
-  backgroundColor: 'black',
-  textAlign: 'left',
-  stretch: 'horizontal'
-  }
+    fontWeight: 'bold', 
+    fontSize: '14px', 
+    padding: '4px 4px 4px 4px',
+    border: '1px solid black',
+    color: 'white',
+    backgroundColor: 'black',
+    textAlign: 'left',
+    stretch: 'horizontal'};
 
   
-var INDICES = ['NDVI', 'NBR', 'EVI', 'EVI2', 'NDFI', 'GREENNESS', 'BRIGHTNESS', 'WETNESS']
-var BANDS = ['BLUE','GREEN','RED', 'NIR', 'SWIR1', 'SWIR2'] 
-var FULLBANDS = BANDS.concat(INDICES)
-var BPBANDS = ['GREEN', 'RED', 'NIR', 'SWIR1', 'SWIR2']
-var TMBANDS = ['GREEN', 'SWIR2']
-var dateFormat = 1
+var INDICES = ['NDVI', 'NBR', 'EVI', 'EVI2', 'NDFI', 'GREENNESS', 'BRIGHTNESS', 'WETNESS'];
+var BANDS = ['BLUE','GREEN','RED', 'NIR', 'SWIR1', 'SWIR2'];
+var FULLBANDS = BANDS.concat(INDICES);
+var BPBANDS = ['GREEN', 'RED', 'NIR', 'SWIR1', 'SWIR2'];
+var TMBANDS = ['GREEN', 'SWIR2'];
+var dateFormat = 1;
 
 
 //####################################################################################
@@ -60,14 +59,14 @@ var getParams = function(){
   }
   
   return { 
-    maxSegments:              parseInt(paramBoxes[0].getValue()),
+    maxSegments:            parseInt(paramBoxes[0].getValue()),
     spikeThreshold:         parseFloat(paramBoxes[1].getValue()),
-    vertexCountOvershoot:     parseInt(paramBoxes[2].getValue()),
-    preventOneYearRecovery:                         prevOneYrRec,
+    vertexCountOvershoot:   parseInt(paramBoxes[2].getValue()),
+    preventOneYearRecovery: prevOneYrRec,
     recoveryThreshold:      parseFloat(paramBoxes[4].getValue()),
     pvalThreshold:          parseFloat(paramBoxes[5].getValue()),
     bestModelProportion:    parseFloat(paramBoxes[6].getValue()),
-    minObservationsNeeded:    parseInt(paramBoxes[7].getValue())
+    minObservationsNeeded:  parseInt(paramBoxes[7].getValue())
   };
 };
 
@@ -94,14 +93,11 @@ var chartPoint = function(lt, pixel, index, indexFlip) {
 
 // function to draw plots of source and fitted time series to panel
 var plotTimeSeries = function(x, y){  
-  // clear the plot panel
-  // plotPanel = plotPanel.clear();
-  
-  // add a red pixel to the map where the user clicked or defined a coordinate
   var point = ee.Geometry.Point(x, y);
   var pixel = point.buffer(15).bounds();
   
-  map.layers().set(0, ui.Map.Layer(pixel, {color: 'FF0000'}));
+  // add a red pixel to the map where the user clicked or defined a coordinate
+  // map.layers().set(0, ui.Map.Layer(point, {color: 'FF0000'}));
   
   // get values to define year and date window for image collection
   var startYear = startYearslider.getValue();
@@ -167,11 +163,11 @@ map.add(processingLabel);
 var yearSectionLabel = ui.Label('Define Year Range',{fontWeight: 'bold'});
 
 var startYearLabel = ui.Label('Start Year');
-var startYearslider = ui.Slider({min:1984, max:2020, value:1990, step:1});
+var startYearslider = ui.Slider({min:1984, max:2021, value:1985, step:1});
 startYearslider.style().set('stretch', 'horizontal');
 
 var endYearLabel = ui.Label('End Year');
-var endYearslider = ui.Slider({min:1984, max:2020, value:2020, step:1});
+var endYearslider = ui.Slider({min:1984, max:2021, value:2020, step:1});
 endYearslider.style().set('stretch', 'horizontal');
 
 var yearsPanel = ui.Panel(
@@ -203,7 +199,6 @@ var datesPanel = ui.Panel(
   ]
 );
 
-
 // index panel
 var indexList = [['NBR',-1], ['NDVI',-1], ['NDMI',-1], ['TCB',1], ['TCG',-1],
                  ['TCW',-1], ['TCA' ,-1], ['BLUE' ,1], ['GREEN' , 1],
@@ -226,17 +221,17 @@ var indexPanel = ui.Panel(
   ui.Panel.Layout.Flow('horizontal'), {stretch: 'horizontal'}
 );
 
-indexBox[11].setValue(1);
+indexBox[5].setValue(1);
 
 
 // params panel
 var runParams = [
-  {label: 'Max Segments:', value: 6},
+  {label: 'Max Segments:', value: 8},
   {label: 'Spike Threshold:', value: 0.9},
   {label: 'Vertex Count Overshoot:', value: 3},
-  {label: 'Prevent One Year Recovery:', value: true},
+  {label: 'Prevent One Year Recovery:', value: false},
   {label: 'Recovery Threshold:', value: 0.25},
-  {label: 'p-value Threshold:', value: 0.05},
+  {label: 'p-value Threshold:', value: 0.1},
   {label: 'Best Model Proportion:', value: 0.75},
   {label: 'Min Observations Needed:', value: 6},
 ];
@@ -262,29 +257,29 @@ submitButton.style().set('stretch', 'horizontal');
 
 ///////////////////////// SET UP CCDC PANELS
 
-var app = {}
-app.ccd = []
-app.viz = []
+var app = {};
+app.ccd = [];
+app.viz = [];
 
 // Start date for ccdc
 app.ccd.sDate = ui.Panel(
     [
       ui.Label({value:'Start date' , style:{stretch: 'horizontal',color:'black'}}),
-      ui.Textbox({value:'1990-01-01', style:{stretch: 'horizontal'}}) 
+      ui.Textbox({value:'1985-01-01', style:{stretch: 'horizontal'}}) 
     ],
     ui.Panel.Layout.Flow('horizontal'),
     {stretch: 'horizontal'}
-)
+);
   
 //End date for ccdc
 app.ccd.eDate = ui.Panel(
     [
       ui.Label({value:'End date' , style:{stretch: 'horizontal',color:'black'}}),
-      ui.Textbox({value:'2020-01-01', style:{stretch: 'horizontal'}}) 
+      ui.Textbox({value:'2021-01-01', style:{stretch: 'horizontal'}}) 
     ],
     ui.Panel.Layout.Flow('horizontal'),
     {stretch: 'horizontal'}
-)
+);
 
 // Lambda
 app.ccd.lambda = ui.Panel(
@@ -294,7 +289,7 @@ app.ccd.lambda = ui.Panel(
     ],
     ui.Panel.Layout.Flow('horizontal'),
     {stretch: 'horizontal'}
-)
+);
 
 // maxIterations
 app.ccd.maxIter = ui.Panel(
@@ -304,7 +299,7 @@ app.ccd.maxIter = ui.Panel(
     ],
     ui.Panel.Layout.Flow('horizontal'),
     {stretch: 'horizontal'}
-)
+);
 
 
 // minObservations
@@ -315,7 +310,7 @@ app.ccd.minObs = ui.Panel(
     ],
     ui.Panel.Layout.Flow('horizontal'),
     {stretch: 'horizontal'}
-)
+);
 
 // chiSquareProbability
 app.ccd.chiSq = ui.Panel(
@@ -325,7 +320,7 @@ app.ccd.chiSq = ui.Panel(
     ],
     ui.Panel.Layout.Flow('horizontal'),
     {stretch: 'horizontal'}
-)
+);
 
 // minNumOfYearsScaler
 app.ccd.minYears = ui.Panel(
@@ -335,7 +330,7 @@ app.ccd.minYears = ui.Panel(
     ],
     ui.Panel.Layout.Flow('horizontal'),
     {stretch: 'horizontal'}
-)
+);
 
 // numSegs
 app.viz.nSegs = ui.Panel(
@@ -345,7 +340,7 @@ app.viz.nSegs = ui.Panel(
     ],
     ui.Panel.Layout.Flow('horizontal'),
     {stretch: 'horizontal'}
-)
+);
 
 var coefBandPanelGenerator = function(){ return ui.Panel([
       ui.Select({items:FULLBANDS, style:{stretch: 'horizontal'}}),
@@ -353,37 +348,37 @@ var coefBandPanelGenerator = function(){ return ui.Panel([
       ui.Textbox({value: 0.6, style:{stretch: 'horizontal'}}) 
     ],
     ui.Panel.Layout.Flow('horizontal'),
-    horizontalStyle)}  
+    horizontalStyle)};  
   
-app.viz.redBox = coefBandPanelGenerator()
-app.viz.greenBox = coefBandPanelGenerator()
-app.viz.blueBox = coefBandPanelGenerator()
+app.viz.redBox = coefBandPanelGenerator();
+app.viz.greenBox = coefBandPanelGenerator();
+app.viz.blueBox = coefBandPanelGenerator();
 
-app.viz.redBox.widgets().get(0).setValue('SWIR1')
-app.viz.greenBox.widgets().get(0).setValue('NIR')
-app.viz.blueBox.widgets().get(0).setValue('RED')
+app.viz.redBox.widgets().get(0).setValue('SWIR1');
+app.viz.greenBox.widgets().get(0).setValue('NIR');
+app.viz.blueBox.widgets().get(0).setValue('RED');
 
 
 // Band selector
 app.ccd.bandSelector = ui.Panel(
     [
       ui.Label({value: 'Select band', style:{stretch: 'horizontal', color:'black'}}),
-      ui.Select({items: FULLBANDS, value: 'SWIR1', style:{stretch: 'horizontal'}}) 
+      ui.Select({items: FULLBANDS, value: 'WETNESS', style:{stretch: 'horizontal'}}) 
     ],
     ui.Panel.Layout.Flow('horizontal'),
     {stretch: 'horizontal'}
-  )
+  );
 
 // Make CCDC control Panel
 app.ccd.controlPanel = ui.Panel({style: {width: '100%'},
                           widgets: [ui.Label('CCD controls', visLabels),
                           app.ccd.bandSelector, app.ccd.sDate, app.ccd.eDate, app.ccd.lambda,
-                          app.ccd.maxIter, app.ccd.minObs, app.ccd.chiSq, app.ccd.minYears]})
+                          app.ccd.maxIter, app.ccd.minObs, app.ccd.chiSq, app.ccd.minYears]});
                       
   
 app.viz.controlPanel = ui.Panel({style: {width: '100%'},
                           widgets: [ui.Label('CCD visualization params', visLabels), app.viz.nSegs,
-                          app.viz.redBox, app.viz.greenBox, app.viz.blueBox]})
+                          app.viz.redBox, app.viz.greenBox, app.viz.blueBox]});
 
 
 //####################################################################################
@@ -391,19 +386,20 @@ app.viz.controlPanel = ui.Panel({style: {width: '100%'},
 //####################################################################################
 
 // plot time series for clicked point on map
-var ccdParams = {}
-var ccdRunParams = {}
-var vizParams = {}
+var ccdParams = {};
+var ccdRunParams = {};
+var vizParams = {};
 
 map.onClick(function(coords) {
-  plotPanel.clear()
-  ccdChartPanel.clear()
+  map.layers().reset();
+  plotPanel.clear();
+  ccdChartPanel.clear();
   var x = coords.lon;
   var y = coords.lat;
   // lonBox.setValue(x);
   // latBox.setValue(y);
   
-  var geometry = ee.Geometry.Point([coords.lon, coords.lat])
+  var geometry = ee.Geometry.Point([coords.lon, coords.lat]);
   var startYear = startYearslider.getValue();
   var endYear = endYearslider.getValue();
   var startDay = startDayBox.getValue();
@@ -411,34 +407,34 @@ map.onClick(function(coords) {
   
 
   // Retrieve CCDC params
-  ccdParams.breakpointBands = BPBANDS
-  ccdParams.tmaskBands= TMBANDS
-  ccdParams.dateFormat = dateFormat
-  ccdParams.lambda = parseFloat(app.ccd.lambda.widgets().get(1).getValue())
-  ccdParams.maxIterations = parseInt(app.ccd.maxIter.widgets().get(1).getValue())
-  ccdParams.minObservations = parseInt(app.ccd.minObs.widgets().get(1).getValue())
-  ccdParams.chiSquareProbability = parseFloat(app.ccd.chiSq.widgets().get(1).getValue())
-  ccdParams.minNumOfYearsScaler = parseFloat(app.ccd.minYears.widgets().get(1).getValue())
+  ccdParams.breakpointBands = BPBANDS;
+  ccdParams.tmaskBands= TMBANDS;
+  ccdParams.dateFormat = dateFormat;
+  ccdParams.lambda = parseFloat(app.ccd.lambda.widgets().get(1).getValue());
+  ccdParams.maxIterations = parseInt(app.ccd.maxIter.widgets().get(1).getValue());
+  ccdParams.minObservations = parseInt(app.ccd.minObs.widgets().get(1).getValue());
+  ccdParams.chiSquareProbability = parseFloat(app.ccd.chiSq.widgets().get(1).getValue());
+  ccdParams.minNumOfYearsScaler = parseFloat(app.ccd.minYears.widgets().get(1).getValue());
 
-  ccdRunParams.bandSelect = app.ccd.bandSelector.widgets().get(1).getValue()
-  ccdRunParams.sDate = app.ccd.sDate.widgets().get(1).getValue()
-  ccdRunParams.eDate = app.ccd.eDate.widgets().get(1).getValue()
-  ccdRunParams.nSegs = parseInt(app.viz.nSegs.widgets().get(1).getValue())
+  ccdRunParams.bandSelect = app.ccd.bandSelector.widgets().get(1).getValue();
+  ccdRunParams.sDate = app.ccd.sDate.widgets().get(1).getValue();
+  ccdRunParams.eDate = app.ccd.eDate.widgets().get(1).getValue();
+  ccdRunParams.nSegs = parseInt(app.viz.nSegs.widgets().get(1).getValue());
   
-  vizParams.red = app.viz.redBox.widgets().get(0).getValue()
-  vizParams.green = app.viz.greenBox.widgets().get(0).getValue()
-  vizParams.blue = app.viz.blueBox.widgets().get(0).getValue()
-  vizParams.redMin = app.viz.redBox.widgets().get(1).getValue()
-  vizParams.greenMin = parseFloat(app.viz.greenBox.widgets().get(1).getValue())
-  vizParams.blueMin = parseFloat(app.viz.blueBox.widgets().get(1).getValue())
-  vizParams.redMax = parseFloat(app.viz.redBox.widgets().get(2).getValue())
-  vizParams.greenMax = parseFloat(app.viz.greenBox.widgets().get(2).getValue())
-  vizParams.blueMax = parseFloat(app.viz.blueBox.widgets().get(2).getValue())
-  vizParams.tsType = "Time series"
+  vizParams.red = app.viz.redBox.widgets().get(0).getValue();
+  vizParams.green = app.viz.greenBox.widgets().get(0).getValue();
+  vizParams.blue = app.viz.blueBox.widgets().get(0).getValue();
+  vizParams.redMin = app.viz.redBox.widgets().get(1).getValue();
+  vizParams.greenMin = parseFloat(app.viz.greenBox.widgets().get(1).getValue());
+  vizParams.blueMin = parseFloat(app.viz.blueBox.widgets().get(1).getValue());
+  vizParams.redMax = parseFloat(app.viz.redBox.widgets().get(2).getValue());
+  vizParams.greenMax = parseFloat(app.viz.greenBox.widgets().get(2).getValue());
+  vizParams.blueMax = parseFloat(app.viz.blueBox.widgets().get(2).getValue());
+  vizParams.tsType = "Time series";
   
   
   runParams = getParams();
-  plotTimeSeries(x, y)
+  plotTimeSeries(x, y);
 });
 
 
@@ -452,8 +448,8 @@ controlPanel.add(datesPanel);
 controlPanel.add(indexPanelLabel);
 controlPanel.add(indexPanel);
 controlPanel.add(paramPanel);
-controlPanel.add(app.ccd.controlPanel)
-controlPanel.add(app.viz.controlPanel)
+controlPanel.add(app.ccd.controlPanel);
+controlPanel.add(app.viz.controlPanel);
 
 map.add(ui.Label({
   value: 'Click a point',
@@ -470,11 +466,11 @@ ui.root.clear();
 var leftPanel = ui.Panel({style: {width: '60%'},
   widgets: [controlPanel, map],
   layout: ui.Panel.Layout.Flow('horizontal')
-})
+});
 
-var fullPanel = ui.SplitPanel(leftPanel, plotPanelParent, 'horizontal')
-ui.root.add(fullPanel)
+var fullPanel = ui.SplitPanel(leftPanel, plotPanelParent, 'horizontal');
+ui.root.add(fullPanel);
 
 // Retrieve CCDC panel and add to plot panel
-var ccdChartPanel = uiUtils.getTSChart(map, ccdParams, ccdRunParams, vizParams)
-plotPanelParent.add(ccdChartPanel)
+var ccdChartPanel = uiUtils.getTSChart(map, ccdParams, ccdRunParams, vizParams);
+plotPanelParent.add(ccdChartPanel);
