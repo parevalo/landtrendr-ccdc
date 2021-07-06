@@ -460,7 +460,6 @@ map.add(ui.Label({
     padding: '6px',
     color: 'white',
     backgroundColor: 'black',
-    textAlign: 'left',
     stretch: 'horizontal'
   } 
 }));
