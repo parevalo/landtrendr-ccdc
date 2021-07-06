@@ -371,13 +371,13 @@ app.ccd.bandSelector = ui.Panel(
 
 // Make CCDC control Panel
 app.ccd.controlPanel = ui.Panel({style: {width: '100%'},
-                          widgets: [ui.Label('CCD controls', visLabels),
+                          widgets: [ui.Label('CCDC controls', visLabels),
                           app.ccd.bandSelector, app.ccd.sDate, app.ccd.eDate, app.ccd.lambda,
                           app.ccd.maxIter, app.ccd.minObs, app.ccd.chiSq, app.ccd.minYears]});
                       
   
 app.viz.controlPanel = ui.Panel({style: {width: '100%'},
-                          widgets: [ui.Label('CCD visualization params', visLabels), app.viz.nSegs,
+                          widgets: [ui.Label('CCDC visualization params', visLabels), app.viz.nSegs,
                           app.viz.redBox, app.viz.greenBox, app.viz.blueBox]});
 
 
