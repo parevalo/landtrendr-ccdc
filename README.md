@@ -6,15 +6,15 @@ The scripts in this repository facilitate interactively running the LandTrendr (
 
 **Getting started:**
 
-The code in this repository can be added to your Earth Engine scripts by clicking [here](https://code.earthengine.google.com/?accept_repo=users/parevalo_bu/landtrendr-ccdc), and will be displayed in the Reader section.
+The tool packaged as an Earth Engine App can be found [here](https://parevalo-bu.users.earthengine.app/view/landtrendr-ccdc). 
 
-The main visualization tool is accessible by running `LandTrendr-CCDC.js`. 
+Alternatively, if you want to access the tool's source code, you can add the repository to your Earth Engine scripts by clicking [here](https://code.earthengine.google.com/?accept_repo=users/parevalo_bu/landtrendr-ccdc), it will be displayed in the Reader section. The visualization tool is accessible by running `LandTrendr-CCDC.js`. 
+
+For this script to work correctly, users must also enable access to CCDC visualization utilities by clicking [here](https://code.earthengine.google.com/?accept_repo=users/parevalo_bu/gee-ccdc-tools) to connect to the GEE-CCDC Tools repository, also described [here](https://github.com/parevalo/gee-ccdc-tools).
 
 Key parameters for the LandTrendr and CCDC algorithms can be adjusted in the left-hand panel, and clicking the map will interactively display both LandTrendr and CCDC Landsat inputs and segmentation results for the selected pixel in a set of charts in the right-hand panel. _Note: CCDC is a more computationally intensive algorithm and results may be slow to load and display._
 
 Additional LandTrendr utilities are included in `LandTrendr.js` and a description of the original LandTrendr utilities can be found [here](https://emapr.github.io/LT-GEE/).
-
-Users must also enable access to CCDC visualization utilities by clicking [here](https://code.earthengine.google.com/?accept_repo=users/parevalo_bu/gee-ccdc-tools) to connect to the GEE-CCDC Tools repository, also described [here](https://github.com/parevalo/gee-ccdc-tools).
 
 ## Manuscript
 This tool was designed to accompany an in-prep manuscript intended to provide high-level comparison current limitations, ongoing challenges, and opportunities for future integration and comparison of LandTrendr and CCDC approaches and map products.
